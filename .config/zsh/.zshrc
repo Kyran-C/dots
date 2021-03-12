@@ -49,31 +49,26 @@ ZLE_RPROMPT_INDENT=0
 function prompt-length {
 	local width
 
-	#echo "Width "
-	#echo $width
-	width=${1//\%F\{[[:alnum:]]##\}/} # search-and-replace color escapes
-	#echo $width
-	width=${width//\%f/} # search-and-replace color escapes
+	width=${1//\%F\{[[:alnum:]]##\}/} # remove foreground colors
+	width=${width//\%f/}
 
-	width=${width//\%K\{[[:alnum:]]##\}/} # search-and-replace color escapes
-	width=${width//\%k/} # search-and-replace color escapes
-	#echo $width
-	width=${width//\%[Bb]/} # search-and-replace color escapes
-	#echo $width
-	width=${${(%)width}} # expand all escapes and count the chars
-	#echo $width
-	#echo "Stripped prompt: $width"
-	width=${#width} # expand all escapes and count the chars
+	width=${width//\%K\{[[:alnum:]]##\}/} # remove background colors
+	width=${width//\%k/}
+
+	width=${width//\%[Bb]/} # remove bold
+	
+	width=${${(%)width}} # expand all escapes
+	width=${#width} # count the chars
 
 	echo $width
 }
 
 function build-prompt {
 	# Vim mode prompt
-    local VIM_PROMPT="%F{250}%K{234} Normal %k%f%{$reset_color%}"
-    local INS_PROMPT="%F{250}%K{234} Insert %k%f%{$reset_color%}"
-    local VIS_PROMPT="%F{250}%K{234} Visual %k%f%{$reset_color%}"
-    local RightPrompt=${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/$INS_PROMPT}
+	local VIM_PROMPT="%F{250}%K{234} Normal %k%f%{$reset_color%}"
+	local INS_PROMPT="%F{250}%K{234} Insert %k%f%{$reset_color%}"
+	local VIS_PROMPT="%F{250}%K{234} Visual %k%f%{$reset_color%}"
+	local RightPrompt=${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/$INS_PROMPT}
 	local RightPromptScreenWidth=$(prompt-length $RightPrompt)
 	local RightPromptWidthDelta=$((${#RightPrompt} - $RightPromptScreenWidth))
 
