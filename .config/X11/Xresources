@@ -1,0 +1,147 @@
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+!rofi.color-window: argb:FF645d57, argb:BF696969, argb:2a696969
+rofi.color-window: argb:F0222222, argb:FF555555, argb:00777777
+rofi.color-normal: argb:00000000, #BBBBBB, argb:00000000, argb:22666666, #BBBBBB
+rofi.color-active: argb:44BB9944, #b0b0b0, argb:00000000, argb:54BB9944, #EEEEEE
+rofi.color-urgent: argb:EF693939, #b0b0b0, argb:EF3a1f1f, argb:EF7c4444, #e2e2e2
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.width: 400
+rofi.padding: 15
+rofi.bw: 1
+rofi.line-margin: 0
+rofi.lines: 15
+rofi.font: System San Francisco Display 10
+rofi.matching: fuzzy
+rofi.display-drun: run
+
+Xft.dpi:        96
+Xft.antialias:  true
+!Xft.antialias:  true
+Xft.rgba:       rgb
+!Xft.rgba:       none
+!Xft.color: false
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter: 0
+
+! ------------------------------------------------------------------------------
+! URXVT
+! ------------------------------------------------------------------------------
+!export TERM=rxvt-unicode-256color
+!URxvt.bitdepth : 256
+!URxvt.256_color: true
+URxvt.iso14755 : false
+URxvt.iso14755_52 : false
+!URxvt.font: xft:Anka/Coder Condensed:size=8:antialias=true
+!URxvt.font: xft:FiraCode Regular:size=8:antialias=true
+!URxvt.font: xft:FiraCode:size=8:antialias=true,xft:Symbola:size=8:antialias=true
+!URxvt.font: xft:Iosevka\ Term\ Medium\ Nerd\ Font\ Complete:size=8:antialias=true
+!URxvt*font: xft:Hack Nerd Font Mono:size=9
+!URxvt*font: xft:Iosevka Nerd Font Mono:pixelsize=12
+!URxvt*font: xft:Noto Sans Mono Regular Nerd Font Complete:pixelsize=18
+!URxvt*font: xft:VictorMono Nerd Font:pixelsize=12:style=Light:antialias=true
+
+!URxvt*font: xft:FiraCode Nerd Font Mono:style=Regular:pixelsize=14:antialias=true
+!URxvt*boldFont: xft:FiraCode Nerd Font Mono:style=Bold:pixelsize=14:antialias=true
+!URxvt*italicFont: xft:FiraCode Nerd Font Mono:style=Italic:pixelsize=14:antialias=true
+URxvt*font: xft:Hack Nerd Font Mono:style=Regular:pixelsize=16:antialias=false
+URxvt*boldFont: xft:Hack Nerd Font Mono:style=Bold:pixelsize=16:antialias=false
+URxvt*italicFont: xft:Hack Nerd Font Mono:style=Italic:pixelsize=16:antialias=false
+
+!URxvt*font: xft:DejaVuSansMono\ Nerd\ Font\ Mono:pixelsize=15:antialias=true
+!URxvt*boldFont: xft:DejaVuSansMono\ Nerd\ Font\ Mono:style=Bold:pixelsize=12:antialias=true
+!URxvt*italicFont: xft:DejaVuSansMono\ Nerd\ Font\ Mono:style=Italic:pixelsize=12:antialias=true
+URxvt.letterSpace: 0
+URxvt*lineSpace: -1
+URxvt.meta8: false
+URxvt.modifier: alt
+URxvt.scrollBar: false
+URxvt*internalBorder: 0
+URxvt*externalBorder: 0
+URxvt.saveLines: 99999
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
+#include "urxvt-modifier-remap"
+
+*foreground:   #FFFFFF
+!*background:   #282C34
+*background:   #444444
+*cursorColor:  #ABB2BF
+
+! black
+*color0:       #282C34
+*color8:       #3E4452
+
+! red
+*color1:       #E06C75
+*color9:       #BE5046
+
+! green
+*color2:       #98C379
+*color10:      #98C379
+
+! yellow
+*color3:       #E5C07B
+*color11:      #D19A66
+
+! blue
+!URxvt.color4:       #61AFEF
+*color4:       #202025
+*color12:      #61AFEF
+
+! magenta
+*color5:       #C678DD
+*color13:      #C678DD
+
+! cyan
+*color6:       #56B6C2
+*color14:      #56B6C2
+
+! white
+*color7:       #ABB2BF
+*color15:      #5C6370
+
+!URxvt*.background: #222225
+!URxvt*.foreground: #A0A0A0
+! black
+!URxvt*.color0:       #282a2e
+!URxvt*.color8:       #373b41
+
+! red
+!URxvt*.color1:       #a54242
+!URxvt*.color9:       #cc6666
+
+! green
+!URxvt*.color2:       #8c9440
+!URxvt*.color10:      #b5bd68
+
+! yellow
+!URxvt*.color3:       #de935f
+!URxvt*.color11:      #f0c674
+
+! blue
+!URxvt.color4:       #102040
+!URxvt.color4:       #ff2000
+!URxvt.color12:      #81a2be
+!URxvt*.color12:      #FF0000
+
+! magenta
+!URxvt*.color5:       #85678f
+!URxvt*.color13:      #b294bb
+
+! cyan
+!URxvt*.color6:       #5e8d87
+!URxvt*.color14:      #8abeb7
+
+! white
+!URxvt*.color7:       #707880
+!URxvt*.color15:      #c5c8c6
+
+
