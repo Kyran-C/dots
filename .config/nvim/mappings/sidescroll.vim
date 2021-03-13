@@ -12,7 +12,7 @@ function s:SideScroll()
 
 	if &wrap || l:scroll_amount == 0
 		return 0
-    endif
+	endif
 
 	" get distance from cursor to window edge
 	let l:right_padding = l:win_width - l:cursor_pos
@@ -21,7 +21,7 @@ function s:SideScroll()
 	let l:target_col = l:win_width - &sidescrolloff
 
 	" shift window
-	let l:view_shift = l:target_col - l:cursor_pos 
+	let l:view_shift = l:target_col - l:cursor_pos
 
 	if l:view_shift > 0
 		exe 'normal! ' . l:view_shift . 'zh'
