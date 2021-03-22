@@ -20,6 +20,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'thaerkh/vim-workspace'
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'clangd/coc-clangd'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf.vim'
@@ -27,8 +28,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'kevinoid/vim-jsonc'
 
 Plug 'Raimondi/delimitMate'
-Plug 'easymotion/vim-easymotion'
-Plug 'unblevable/quick-scope'
+Plug 'phaazon/hop.nvim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'tpope/vim-commentary'
 

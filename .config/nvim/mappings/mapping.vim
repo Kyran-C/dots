@@ -6,11 +6,9 @@ set timeoutlen=150
 nnoremap <c-s> :w<CR>
 inoremap <c-s> <C-O>:w<CR>
 
-" == EasyMotion ==
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-map <space>f <Plug>(easymotion-s)
-map <F10> <Plug>(easymotion-s)
+" == Hop ==
+map <silent> <F10> :HopWord<CR>
+map <silent> <space>f :HopChar1<CR>
 
 " == Reload .vimrc ==
 "":call MapAlt( "<F15>r", ":source ~/.config/.vimrc<CR>" )
