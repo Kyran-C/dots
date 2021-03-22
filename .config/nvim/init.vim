@@ -1,4 +1,6 @@
 
+command SrcVim so init.vim
+
 " Core settings
 runtime settings.vim
 
