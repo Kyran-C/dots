@@ -8,7 +8,7 @@ inoremap <c-s> <C-O>:w<CR>
 
 " == Hop ==
 map <silent> <F10> :HopWord<CR>
-map <silent> <space>f :HopChar1<CR>
+map <silent> <space><F10> :HopChar1<CR>
 
 " == Reload .vimrc ==
 "":call MapAlt( "<F15>r", ":source ~/.config/.vimrc<CR>" )
@@ -114,10 +114,14 @@ inoremap  k
 inoremap  j
 inoremap <C-;> l
 
+" unmap shift-up/down
+nmap <S-Down> <Nop>
+nmap <S-Up> <Nop>
+
 " == Window Splits ==
 set winminheight=0
-noremap <C-h> :vsp
-noremap <C-v> :sp
+noremap <C-h> :vsp 
+noremap <C-v> :sp 
 noremap <F14>h :vsp<CR>
 noremap <F14>v :sp<CR>
 "       ctrl focuses adjacent splits
@@ -136,7 +140,8 @@ noremap <F14>; <c-w>L
 noremap <F14>k <c-w>K
 noremap <F14>l <c-w>J
 "       ctrl-+ maximises (and recenters window on cursor)
-noremap <F14>= <c-w>_<c-w><bar>zz      
+noremap <F14>= <c-w>_<c-w><bar>zz
+
 
 " == Next/Previous Occurance ==
 noremap h n
@@ -243,15 +248,15 @@ endfunction
 " == Move within a line ==
 nnoremap <silent> gj :call LineBegin()<CR>
 vnoremap <silent> gj :call LineBegin()<CR>
-nnoremap g; g_
-vnoremap g; g_
+nnoremap g; g$
+vnoremap g; g$
 nnoremap gJ 0
 vnoremap gJ 0
 nnoremap g: $
 vnoremap g: $
 
 onoremap gj ^
-onoremap g; g_
+onoremap g; g$
 onoremap gJ 0
 onoremap g: $
 

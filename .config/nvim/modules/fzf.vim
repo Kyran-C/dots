@@ -4,7 +4,7 @@ function! FloatingFZF()
 	call setbufvar(buf, '&signcolumn', 'no')
 
 	let height = &lines - 8
-	let width = float2nr(&columns - (&columns * 2 / 10))
+	let width = float2nr(&columns * 8 / 10)
 	let col = float2nr((&columns - width) / 2)
 
 	let opts = {

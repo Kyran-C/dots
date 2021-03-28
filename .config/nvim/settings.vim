@@ -3,6 +3,7 @@ let mapleader="\<space>"
 
 set undodir=~/.config/nvim/.undodir
 
+set noshowmode 					" No need to show the mode, we have a statusline for that
 set mouse=a 					" Enable mouse in all modes
 set title 						" Set window title to current file
 set timeoutlen=150 				" Shorten timeout between successive keypressses
@@ -18,13 +19,14 @@ set nofoldenable
 set scrolloff=999 				" Keep cursor centered in view
 set sidescrolloff=20
 set nowrap
-set nosmarttab
-set inccommand=split 			" Live preview of matching text
-set lazyredraw
-set undofile
+set nosmarttab 					" Don't repaint during macro execution
+set inccommand=split 			" Live preview of matching text, showing off screen changes in a preview buffer
+set lazyredraw 					" Don't repaint during macro execution
+set undofile 					" Persistent undo file
 
 set ignorecase 					" Case insensitive when searching...
 set smartcase 					" Unless searching for caps
 
+set termguicolors 				" Use true color
 set cursorline
 set splitright splitbelow

@@ -9,24 +9,24 @@
 " --------------------------------
 " Editor settings
 " --------------------------------
-hi Normal          ctermfg=247    ctermbg=235    cterm=none
+hi Normal          ctermfg=247    ctermbg=235    cterm=none    guifg=#9e9e9e   guibg=#262626
 hi Cursor          ctermfg=none    ctermbg=none    cterm=none
-hi CursorLine      ctermfg=none    ctermbg=234    cterm=none
-hi LineNr          ctermfg=238    ctermbg=234    cterm=none
-hi CursorLineNR    ctermfg=238    ctermbg=234    cterm=none
+hi CursorLine      ctermfg=none    ctermbg=234    cterm=none   guibg=#1c1c1c
+hi LineNr          ctermfg=238    ctermbg=234    cterm=none    guifg=#444444   guibg=#1c1c1c
+hi CursorLineNR    ctermfg=238    ctermbg=234    cterm=none    guifg=#444444   guibg=#1c1c1c
 
 " -----------------
 " - Number column -
 " -----------------
-hi CursorColumn    ctermfg=241    ctermbg=234    cterm=none
+hi CursorColumn    ctermfg=241    ctermbg=234    cterm=none    guifg=#626262   guibg=#1c1c1c
 hi FoldColumn      ctermfg=none    ctermbg=none    cterm=none
 hi SignColumn      ctermfg=none    ctermbg=none    cterm=none
-hi Folded          ctermfg=238    ctermbg=234    cterm=none
+hi Folded          ctermfg=238    ctermbg=234    cterm=none    guifg=#444444   guibg=#1c1c1c
 
 " -------------------------
 " - Window/Tab delimiters - 
 " -------------------------
-hi VertSplit       ctermfg=234    ctermbg=234    cterm=none
+hi VertSplit       ctermfg=234    ctermbg=234    cterm=none    guifg=#1c1c1c   guibg=#1c1c1c
 hi ColorColumn     ctermfg=none    ctermbg=none    cterm=none
 hi TabLine         ctermfg=none    ctermbg=none    cterm=none
 hi TabLineFill     ctermfg=none    ctermbg=none    cterm=none
@@ -53,15 +53,17 @@ hi MoreMsg         ctermfg=none    ctermbg=none    cterm=none
 " --------------
 " - Visual aid -
 " --------------
-hi MatchParen      ctermfg=250    ctermbg=232    cterm=bold
+hi MatchParen      ctermfg=250    ctermbg=232    cterm=bold    guifg=#bcbcbc   guibg=#080808
 hi Visual          ctermfg=none    ctermbg=none    cterm=bold,reverse
 hi VisualNOS       ctermfg=none    ctermbg=none    cterm=none
-hi NonText         ctermfg=248    ctermbg=234    cterm=none
+hi NonText         ctermbg=234    cterm=none    guibg=#1c1c1c    guifg=#a8a8a8
 
 hi Todo            ctermfg=none    ctermbg=none    cterm=none
 hi Underlined      ctermfg=none    ctermbg=none    cterm=none
 hi Error           ctermfg=none    ctermbg=none    cterm=none
 hi ErrorMsg        ctermfg=none    ctermbg=none    cterm=none
+hi cErrInBracket   ctermfg=none    ctermbg=none    cterm=none
+hi cBracket        ctermfg=none    ctermbg=none    cterm=none
 hi WarningMsg      ctermfg=none    ctermbg=none    cterm=none
 hi Ignore          ctermfg=none    ctermbg=none    cterm=none
 hi SpecialKey      ctermfg=none    ctermbg=none    cterm=none
@@ -77,8 +79,8 @@ hi Number          ctermfg=none    ctermbg=none    cterm=none
 hi Boolean         ctermfg=none    ctermbg=none    cterm=none
 hi Float           ctermfg=none    ctermbg=none    cterm=none
 
-hi Identifier      ctermfg=074    ctermbg=none    cterm=none
-hi Function        ctermfg=248    ctermbg=none    cterm=bold
+hi Identifier      ctermfg=074    ctermbg=none    cterm=none    guifg=5fafd7
+hi Function        ctermbg=none    cterm=bold    guifg=#a8a8a8
 
 " --------------------------------
 " Language constructs
@@ -108,10 +110,10 @@ hi Define          ctermfg=none    ctermbg=none    cterm=none
 hi Macro           ctermfg=none    ctermbg=none    cterm=none
 hi PreCondit       ctermfg=none    ctermbg=none    cterm=none
 
-hi Type            ctermfg=241    ctermbg=none    cterm=italic
-hi StorageClass    ctermfg=241    ctermbg=none    cterm=italic
-hi Structure       ctermfg=241    ctermbg=none    cterm=italic
-hi Typedef         ctermfg=241    ctermbg=none    cterm=none
+hi Type            ctermfg=241    ctermbg=none    cterm=italic    guifg=#626262
+hi StorageClass    ctermfg=241    ctermbg=none    cterm=italic    guifg=#626262
+hi Structure       ctermfg=241    ctermbg=none    cterm=italic    guifg=#626262
+hi Typedef         ctermfg=241    ctermbg=none    cterm=none    guifg=#626262
 
 " --------------------------------
 " Diff

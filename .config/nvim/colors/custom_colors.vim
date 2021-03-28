@@ -15,13 +15,16 @@ runtime colors/color_mapping.vim
 " Install grayscale theme
 runtime colors/GrayscaleColors.vim 
 
+function s:hsl(...)
+	return call('HSLToRGB', a:000)
+endfunction
+
 let none = 'none'
 let mygreen = RGB(0, 128, 0)
 let myyellow = RGB(128, 128, 0)
-let gray = 247
+let gray  = 247
 let gray2 = 248
 let dark_gray = RGB( 98, 98, 98 )
-
 
 " Cpp semantic coloring
 let enable_custom_highlight_for_cpp = 1
@@ -29,9 +32,22 @@ if enable_custom_highlight_for_cpp
 
 runtime colors/reset-lsp-cxx.vim
 
-map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."), 1), "name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)), "name") . ">"<CR>
+"map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."), 1), "name") . '> trans<'
+"\ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
+"\ . synIDattr(synIDtrans(synID(line("."),col("."),1)), "name") . ">"<CR>
+
+function! SyntaxGroups()
+	let save_pos = getpos(".")
+	for id1 in synstack(line("."), col("."))
+		let id2 = synIDtrans(id1)
+		let name1 = synIDattr(id1, "name")
+		let name2 = synIDattr(id2, "name")
+		echo name1 " -> " name2
+	endfor
+	call setpos(".", save_pos)
+endfunction
+
+map <silent> <F11> :call SyntaxGroups()<CR>
 
 "=============================================================================
 " Color Definitions
@@ -72,9 +88,20 @@ let global_var_style 		= 'italic'
 let static_var_color 		= RGB( 255, 135, 95 )
 let static_var_style 		= 'italic'
 " let member_var_color 		= RGB( 255, 175, 135 ) 
+"let member_var_color 		= RGB( 255, 215, 175 )
 let member_var_color 		= RGB( 255, 215, 175 )
+
+"lua require'colorizer'.setup(nil, { css = true; })
+""#FF0000
+"" RGB(255, 0, 0)
+" hsl(0.0, 1.0, 255)
+" hsl(100%, 100%, 100%)
+" hsl(182, 100%, 100%) 
+" rgb(255,255,0)
+"let member_var_color 		= hsl(0%, 100%, 100%)
 let member_var_style 		= none
 let local_var_color 		= RGB( 255, 255, 215 )
+let parameter_color 		= RGB( 255, 255, 0 )
 "let member_var_color 		= RGB( 255, 215, 135 ) 
 
 " let global_var_color 		= RGB( 95, 175, 215 )
@@ -206,18 +233,6 @@ exe Highlight('LspCxxHlSymFunctionVariable', local_var_color )
 exe Highlight('LspCxxHlSymMethodVariable', local_var_color )
 exe Highlight('LspCxxHlSymConstructorVariable', local_var_color )
 exe Highlight('LspCxxHlSymStaticMethodVariable', local_var_color )
+exe Highlight('LspCxxHlSymLocalVariable', local_var_color )
 
 endif
-
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace':{}, 'visual': {}, 'tabline': {} }
-let s:p.normal.left = [ ['#000000', '#000000', 234, 244, "bold"], ['#000000', '#000000', 244, 235], ['#000000', '#000000', 244, 235] ]
-let s:p.normal.right = [ ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 235] ]
-let s:p.normal.middle = [ ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 234] ]
-let s:p.inactive.left = [ ['#000000', '#000000', 244, 235] ]
-let s:p.insert.left = [ ['#000000', '#000000', 234, 255, "bold"], ['#000000', '#000000', 244, 235] ]
-let s:p.insert.right = [ ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 235] ]
-let s:p.insert.middle = [ ['#000000', '#000000', 244, 234], ['#000000', '#000000', 244, 234] ]
-let s:p.visual.left = [ ['#000000', '#000000', 234, 255, "bold"], ['#000000', '#000000', 244, 235] ]
-let s:p.tabline.left = [ ['#000000', '#000000', 234, 238, 'italic'] ]
-let s:p.tabline.tabsel = [ ['#000000', '#000000', 234, 244] ]
-let g:lightline#colorscheme#custom_colors#palette = s:p

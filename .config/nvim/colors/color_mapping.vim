@@ -1,9 +1,20 @@
+
 function! Highlight(name, fg, ...)
-	let command = 'hi ' . a:name . ' ctermfg=' . a:fg 
+	if &termguicolors 
+		let fg = ' guifg='
+		let bg = ' guibg='
+		let style = ' gui='
+	else
+		let fg = ' ctermfg='
+		let bg = ' ctermbg='
+		let style = ' cterm='
+	endif
+
+	let command = 'hi ' . a:name . fg . a:fg 
 	if a:0
-		let command .= ' ctermbg=' . a:1 
+		let command .= bg . a:1 
 		if a:0 >= 2
-			let command .= ' cterm=' . a:2
+			let command .= style . a:2
 		endif
 	endif
 	exe command
@@ -268,8 +279,59 @@ let cterm_color_table = [
 	\ [238, 238, 238]]
 
 function RGB( r, g, b )
+	if &termguicolors
+		return '#' . printf("%02x%02x%02x", a:r, a:g, a:b)
 	let vals = [ a:r, a:g, a:b ]
 	let ind = index( g:cterm_color_table, vals )
 	return ind
 endfunc
 
+function! s:HueToRGB(p, q, t) abort
+	let l:p = a:p
+	let l:q = a:q
+	let l:t = a:t
+	if l:t < 0
+		let l:t = l:t + 1.0
+	endif
+	if l:t > 1
+		let l:t = l:t - 1.0
+	endif
+
+	if l:t < 1.0 / 6.0
+		return l:p + (l:q - l:p) * 6.0 * l:t
+	endif
+	if l:t < 1.0 / 2.0
+		return l:q
+	endif
+	if l:t < 2.0 / 3.0
+		return l:p + (l:q - l:p) * (2.0 / 3.0 - l:t) * 6.0
+	endif
+	return l:p
+endfunction
+
+function! s:HSLToRGB(hsl) abort
+	let l:red = 0.0
+	let l:green = 0.0
+	let l:blue = 0.0
+
+	let l:hue = a:hsl[0]
+	let l:saturation = a:hsl[1]
+	let l:lightness = a:hsl[2]
+
+	if l:saturation == 0
+		let l:red = l:lightness
+		let l:green = l:lightness
+		let l:blue = l:lightness
+	else
+		let l:q = l:lightness < 0.5 ? l:lightness * (1.0 + l:saturation) : l:lightness + l:saturation - l:lightness * l:saturation
+		let l:p = 2.0 * l:lightness - l:q
+		let l:_hue = l:hue + 1.0 / 3.0
+		let l:red = s:HueToRGB(l:p, l:q, l:_hue)
+		let l:green = s:HueToRGB(l:p, l:q, l:hue)
+		let l:_hue = l:hue - 1.0 / 3.0
+		let l:blue = s:HueToRGB(l:p, l:q, l:_hue)
+	endif
+
+	"return [l:red, l:green, l:blue]
+	return RGB(l:red, l:green, l:blue)
+endfunction

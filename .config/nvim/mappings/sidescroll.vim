@@ -29,4 +29,5 @@ function s:SideScroll()
 endfunction
 
 " Trigger every time the cursor moves
-autocmd CursorMoved,CursorMovedI * call <SID>SideScroll()
+"autocmd CursorMoved,CursorMovedI * call <SID>SideScroll()
+autocmd CursorMoved * call <SID>SideScroll()

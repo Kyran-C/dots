@@ -24,6 +24,7 @@ Plug 'thaerkh/vim-workspace'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'clangd/coc-clangd'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'rktjmp/lush.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -37,17 +38,17 @@ Plug 'tpope/vim-commentary'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 "Plug 'dbgx/lldb.nvim'
+"Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
 syntax clear
 
+set updatetime=300
 
 set background=dark
-let g:gruvbox_italic=1
-colorscheme custom_colors
 
-set noshowmode
+colorscheme odd_order
 
 augroup highlight_yank
 	autocmd!
