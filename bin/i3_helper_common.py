@@ -40,6 +40,7 @@ class State(object):
     def on_window_focus( self ):
         global i3
         global flash_pre_timer
+        print("state window focus")
         flash_pre_timer.cancel()
         if self.focused_window_id != -1:
             highlight_disable( self.focused_window_id )

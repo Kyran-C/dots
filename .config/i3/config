@@ -47,13 +47,15 @@ set $right semicolon
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
+bindsym --whole-window Mod4+button2 exec --no-startup-id window_boxer.sh
+
 # start a terminal
 #bindsym Mod4+Return exec tilix
 #bindsym Mod4+Shift+Return exec tilix --quake
 #bindsym Mod4+Return exec urxvtc -fn "xft:Hack Nerd Font Mono:pixelsize:8"
 #bindsym Mod4+Return exec urxvtc
-bindsym Mod4+Return exec kitty
-bindsym Mod4+r exec urxvtc -e ranger
+bindsym Mod4+Return exec --no-startup-id kitty
+bindsym Mod4+r exec --no-startup-id kitty -e ranger
 
 bindsym Mod4+Mod1+x exec urxvtc -e nvim /home/kyran/.config/X11/Xresources
 bindsym Mod4+Mod1+v exec urxvtc -e nvim /home/kyran/.config/.vimrc
@@ -256,7 +258,7 @@ for_window [class="^.*"] pixel 0
 exec --no-startup-id xrdb -merge ~/.config/X11/Xresources
 
 # adjust key delay and repeat frequency
-exec --no-startup-id xset r rate 200 45
+exec --no-startup-id xset r rate 350 45
 
 exec_always --no-startup-id urxvtd -q -o -f
 
@@ -270,4 +272,7 @@ exec_always --no-startup-id ~/bin/i3_helper.py &
 #exec --no-startup-id pulseaudio --start
 #exec --no-startup-id nm-applet
 #exec_always --no-startup-id compton --config .config/compton.conf
+exec --no-startup-id /usr/lib/polkit-1/polkitd --no-debug
+exec --no-startup-id /usr/lib/poolkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id VBoxClient-all
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
