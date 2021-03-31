@@ -1,27 +1,7 @@
 {  
-	// "languageserver": {
-	// 	"clangd": {
-	// 		"command": "clangd",
-	// 		"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-	// 		"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-	// 	}
-	// },
 	"clangd.semanticHighlighting": true,
-	"suggest.enablePreview": true
-
-//		"ccls": {
-//			"command": "ccls",
-//			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-//			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-//			"initializationOptions": {
-//				"cache": {
-//					"directory": ".ccls-cache"
-//				},
-//				"highlight": { "lsRanges" : true }
-//			}
-//		}
-//	},
-//	"coc.preferences.currentFunctionSymbolAutoUpdate" : true,
+	"suggest.enablePreview": true,
+	"coc.preferences.currentFunctionSymbolAutoUpdate" : true
 //	"suggest.autoTrigger" : "trigger",
 //	"suggest.maxCompleteItemCount" : 100,
 //	"suggest.acceptSuggestionOnCommitCharacter" : true,

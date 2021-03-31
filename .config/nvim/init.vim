@@ -37,6 +37,10 @@ Plug 'tpope/vim-commentary'
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+
+" Ranger
+"Plug 'kevinhwang91/rnvimr'
+"
 "Plug 'dbgx/lldb.nvim'
 "Plug 'lewis6991/gitsigns.nvim'
 

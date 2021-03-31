@@ -340,6 +340,23 @@ autocmd filetype help nnoremap <silent> <buffer> <esc> :helpclose<CR>
 " == Close vim-plug window with escape
 autocmd filetype vim-plug nnoremap <silent> <buffer> <esc> :q<CR>
 
+" == Get highlight/syntax group for symbol under cursor ==
+function! SyntaxGroups()
+	let save_pos = getpos(".")
+	for id1 in synstack(line("."), col("."))
+		let id2 = synIDtrans(id1)
+		let name1 = synIDattr(id1, "name")
+		let name2 = synIDattr(id2, "name")
+		echo name1 " -> " name2
+	endfor
+	if (&filetype == "cpp")
+		LspCxxHlCursorSym
+	endif
+	call setpos(".", save_pos)
+endfunction
+
+map <silent> <F11> :call SyntaxGroups()<CR>
+
 " == Comment ==
 "omap <F13>/ c
 "nmap <F13>/ gc
