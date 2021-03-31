@@ -58,7 +58,7 @@ inoremap <silent> <M-;> <C-o>:s/$/;/
 
 " == Toggle Commenting ==
 nmap <F15>/ <Plug>CommentaryLine
-vmap <F15>/ <Plug>CommentaryLine
+vmap <F15>/ <Plug>Commentary
 
 " == Jump List ==
 nnoremap g, <c-o>
