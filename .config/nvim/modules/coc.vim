@@ -3,20 +3,28 @@ set updatetime=300
 
 set signcolumn=number
 
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
+"   ctrl-space to trigger completion
+inoremap <silent><expr> <F13><spc>
+	\ pumvisible() ? coc#_select_confirm() :
 	\ coc#refresh()
 
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+"   return to complete
+inoremap <expr> <cr> coc#_selected() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+"   <Right> to complete
+inoremap <silent><expr> <Right>
+	\ pumvisible() ? coc#_select_confirm() :
+	\ "\<Right>"
 
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+"   <Left> to cancel
+inoremap <expr> <Left> pumvisible() ? "<C-O>:call coc#_cancel()<CR>" : "\<Left>"
+
+"   <Tab> to select next
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"   <S-Tab> to select previous
+inoremap <silent><expr> <S-Tab> 
+	\ pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "  :: Mappings to fill out ::
 "
@@ -26,10 +34,11 @@ inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 " map <silent> ___ <Plug>(coc-type-definition) 
 " map <silent> ___ <Plug>(coc-implementation) 
 " map <silent> ___ <Plug>(coc-references) 
+map <silent> B <Plug>(coc-codeaction) 
 " <Plug>(coc-rename)
 "
-" map <silent> ___ :call <SID>show_documenation()<CR> 
-"
+map <silent> K :call <SID>show_documenation()<CR> 
+
 function! s:show_documenation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')

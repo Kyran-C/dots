@@ -1,15 +1,21 @@
 {  
 	"clangd.semanticHighlighting": true,
 	"suggest.enablePreview": true,
-	"coc.preferences.currentFunctionSymbolAutoUpdate" : true
+	"coc.preferences.currentFunctionSymbolAutoUpdate" : true,
+	"diagnostic.virtualTextPrefix" : "        ",
+	"signature.preferShownAbove": false,
+	"suggest.detailField": "menu",
+	"suggest.floatEnable": true,
+	"codeLens.enable" : true,
+	"suggest.disableKind": false,
+	"codeLens.separator" : "            ",
+	"coc.preferences.enableFloatHighlight": true
 //	"suggest.autoTrigger" : "trigger",
 //	"suggest.maxCompleteItemCount" : 100,
 //	"suggest.acceptSuggestionOnCommitCharacter" : true,
 //	"diagnostic.errorSign" : "\uf054",
 //	"diagnostic.infoSign" : "\uf054",
 //	"diagnostic.hintSign" : "\uf054",
-//	"codeLens.enable" : false,
-//	"codeLens.separator" : "            ",
 //	"list.maxHeight" : 40,
 //	"currentFunctionSymbolAutoUpdate" : true,
 //	"suggest.completionItemKindLabels": {
