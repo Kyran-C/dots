@@ -98,9 +98,10 @@ nnoremap <M-S-s> <C-V>
 
 " remap directional keys
 noremap j h
-noremap k k
-noremap l j
 noremap ; l
+       " add to jumplist if moving more than 5 lines
+noremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+noremap <expr> l v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 vnoremap j h
 vnoremap k k
 vnoremap l j
@@ -361,6 +362,14 @@ map <silent> <F11> :call SyntaxGroups()<CR>
 "omap <F13>/ c
 "nmap <F13>/ gc
 nnoremap <C-M-/> I// ==========================================================================================================================================================kn 
+
+
+
+" == Make arrow keys for wildmenu work more sensibly ==
+cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
+cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
+cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
+cnoremap <expr> <right> wildmenumode() ? " \<bs>" : "\<right>"
 
 
 
