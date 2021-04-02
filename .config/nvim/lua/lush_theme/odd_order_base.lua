@@ -16,7 +16,6 @@ local hsl = lush.hsl
 --   Adjustment functions have shortcut aliases, ro, sa, de, li, da
 --                                               abs_sa, abs_de, abs_li, abs_da
 --
-
 local ErrorColor = hsl(6, 65, 43)
 local LightBlue = hsl(205, 70, 50)
 
@@ -33,9 +32,10 @@ local theme = lush(function()
     lCursor      { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 
     Visual            { Cursor },
-    Whitespace        { fg = Normal.bg.desaturate(25).lighten(10) },
-       
-    -- Comment { fg = hsl(203, 5, 40) },
+    Whitespace        { fg = Normal.bg.desaturate(25).darken(35) },
+	Tab_Character     { fg = Normal.bg.saturate(5).darken(15) },
+	Starting_Tab_Character     { fg = Whitespace.fg.lighten(1), bg = Normal.bg.darken(10) },
+
     Comment { fg = hsl(203, 20, 5) },
 
     ColorColumn  { Cursor }, -- used for the columns set with 'colorcolumn'
@@ -56,7 +56,6 @@ local theme = lush(function()
     PmenuThumb   { fg = Normal.bg, bg=Normal.fg }, -- Popup menu: Thumb of the scrollbar.
     Title        { fg = LightBlue, gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
     WarningMsg   { ErrorMsg }, -- warning messages
-    -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { Substitute }, -- current match in 'wildmenu' completion
 
 	-- Help file groups
@@ -219,7 +218,6 @@ local theme = lush(function()
     -- MoreMsg      { }, -- |more-prompt|
     -- Question     { }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    -- SpecialKey   { }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.

@@ -46,12 +46,9 @@ Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
 
-syntax clear
-
 set updatetime=300
 
 set background=dark
-
 colorscheme odd_order
 
 augroup highlight_yank
