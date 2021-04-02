@@ -48,6 +48,3 @@ function! s:show_documenation()
 		execute '!' . &keywordprg . " " . expand('<cword>')
 	endif
 endfunction
-
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
