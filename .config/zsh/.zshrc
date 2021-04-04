@@ -15,7 +15,7 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 function chpwd() {
 	print -Pn "\e]2;%~\a"
-	ls --color --group-directories-first -Ap
+	ls --color --group-directories-first -AF
 }
 
 
