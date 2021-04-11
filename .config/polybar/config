@@ -1,11 +1,11 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
 
 [colors]
 ;background = ${xrdb:color0:#222}
@@ -24,34 +24,23 @@ alert = #bd2c40
 
 powerbutton-background = #FFF
 
+; =================================================================================================
+
 [bar/statusbar]
-;monitor = ${env:MONITOR:HDMI-1}
-;override-redirect = true
-;width = 1080px
-width = 80%
-height = 28
-;override-redirect = true
-;offset-x = 25%
-;offset-y = 80
-radius = 4.0
 fixed-center = true
+radius-top = 3.0
+radius-bottom = 15.0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+height = 28
+width = 100%
 
-line-size = 0
-;overline-color = #FFFF
-;underline-color = #FFFF
+; Borders occupy remainder of space beyond 1080px
+border-left-size = 50%:-1080
+border-right-size = 50%:-1080
 
-;border-size = 1
 border-top-size = 5
 border-bottom-size = 4
-border-left-size = 700
-;border-left-color = #FFF
-border-right-size = 20
-;border-right-color = #FFF
 border-color = #00000000
-;border-color = #FF000022
 
 padding-left = 0
 padding-right = 4
@@ -59,40 +48,38 @@ padding-right = 4
 module-margin-left = 0
 module-margin-right = 0
 
-;dpi-x = 97
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-;font-0 = fixed:pixelsize=8;1
-;font-0 = YosemiteSanFranciscoFont:style:regular:size=12;2
-font-0 = Iosevka Nerd Font:style:regular:pixelsize=12;2
-;font-1 = FuraCode Nerd Font:style:mono:pixelsize=17;4
+line-size = 0
+
+dpi-x = 96
+dpi-y = 96
+
+; =================================================================================================
+;										:: Fonts ::
+font-0 = Iosevka Nerd Font:style:regular:pixelsize=12;3
 
 ; Cpu/mem icons
-;font-1 = DejaVu Sans Mono:pixelsize=34;4
+font-1 = FiraMono Nerd Font Mono:pixelsize=16;3
+font-2 = FiraMono Nerd Font Mono:pixelsize=16;3
 
-#font-1 = Symbols Nerd Font:style:1000-em:pixelsize=34;4
-#font-2 = DejaVu Sans Mono:pixelsize=34;4
-font-1 = FiraMono Nerd Font Mono:scale=1:antialias=false:pixelsize=16;3
-font-2 = FiraMono Nerd Font Mono:scale=1:antialias=false:pixelsize=16;3
-;font-4 = FiraMono Nerd Font:style=Bold:scale=1:antialias=false:hint=full:pixelsize=16;3
-;font-4 = Noto Sans Symbols2:style=Bold:scale=1:antialias=false:hint=full:pixelsize=24;8
-;
-; This is the modified font with the adjusted ramp shape, ue0b8
-font-4 = JetBrainsMono Nerd Font Modified:style=Regular,Modified:hint=full:antialias=true:pixelsize=24;3
-#font-4 = JetBrainsMono Nerd Font,JetBrainsMono Nerd Font Modified:style=Regular,Modified:scale=1:antialias=false:hint=full:pixelsize=24;8
-#font-2 = Symbols Nerd Font:style:1000-em:pixelsize=34;4
-;font-2 = FuraCode Nerd Font:style:mono:pixelsize=18;4
-
-; volume bar font
+; Rounded end caps
 font-3 = Symbols Nerd Font:style:1000-em:pixelsize=8;0
-;font-3 = DejaVu Sans Mono:pixelsize=34;1
-;font-3 = FuraCode Nerd Font:style:mono:pixelsize=8;1
-;font-0 = FuraCode Nerd Font:style:mono:size=12;2
-;font-1 = Iosevka Nerd Font:style:regular:size=18;4
-;font-2 = Iosevka Nerd Font:style:regular:size=12;4
-;font-3 = Iosevka Nerd Font:style:regular:size=8;1
-;font-2 = siji:pixelsize=10;1
-;font-2 = DejaVu:pixelsize=10;1
-;font-3 = FontAwesome:size=14;3
+
+; This is the modified font with the adjusted ramp shape, ue0b8
+font-4 = JetBrainsMono Nerd Font Modified:style=Regular,Modified:antialias=true:pixelsize=24;3
+
+; For workspace icons
+font-5 = FiraMono Nerd Font Mono:pixelsize=22;5
+
+; Power button font
+font-6 = FiraMono Nerd Font Mono:pixelsize=18;4
+
+; Volume bar
+font-7 = FiraMono Nerd Font Mono:pixelsize=8;2
+
+; =================================================================================================
 
 modules-left = powermenu i3 xwindow
 modules-center = 
@@ -104,27 +91,202 @@ tray-padding = 2
 tray-background = ${colors.background}
 
 wm-name = i3
-;wm-restack = bspwm
-;wm-restack = i3
 
-;override-redirect = true
+; =================================================================================================
+;											:: Power Menu ::
+[module/powermenu]
+type = custom/menu
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+format-spacing = 0
+format-background = #FFF
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+label-open-font = 1
+label-close-font = 1
 
+menu-0-font = 1
+menu-1-font = 1
+menu-2-font = 1
+
+label-close-foreground = #AAAAAA
+label-open-foreground = #AAAAAA 
+
+label-open = "%{T7} %{T-} %{F#FFF}%{B#0000}%{T3}%{O0}%{T-}%{B-}%{F-}%{F#AAAAAA}%{O-24}%{T7}%{T-}    "
+
+label-close = "%{T7} %{T-} %{F#A33}%{O-12}%{T7}%{T-}%{O0}%{B#FFF}%{F#333} %{R}%{T5}%{O-1} %{T-}%{B-}%{F-}"
+
+label-separator = "%{B#333}  %{B-}"
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = "%{B#333}%{F#FFF}reboot%{F-}%{B-}"
+menu-0-0-exec = #powermenu.open.1
+menu-0-1 = "%{B#333}%{F#FFF}  power off %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
+menu-0-1-exec = #powermenu.open.2
+
+menu-1-0 = "%{B#333}%{F#FFF}cancel     %{F-}%{B-}"
+menu-1-0-exec = #powermenu.open.0
+menu-1-1 = "%{B#333}%{F#F88}reboot %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
+menu-1-1-exec = reboot
+
+menu-2-0 = "%{B#333}%{F#F88}power off%{F-}%{B-}"
+menu-2-0-exec = shutdown -h now
+menu-2-1 = "%{B#333}%{F#FFF} cancel  %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
+menu-2-1-exec = #powermenu.open.0
+
+
+; =================================================================================================
+;											:: i3 Workspaces ::
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+label-focused-font = 6
+label-unfocused-font = 6
+label-visible-font = 6
+label-urgent-font = 6
+
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = #ddd
+label-focused-foreground = #444
+;label-focused-background = ${colors.background-focused-workspace}
+;label-focused-foreground = ${colors.foreground-focused-workspace}
+;label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = 2
+
+; =================================================================================================
+;											:: Window Title Bar ::
 [module/xwindow]
 type = internal/xwindow
 format-padding = 10
 format-foreground = #333
 format-background = #0000
-;label = "%{T3}%{F#68000000}%{F-}%{F#88000000}%{B#68000000}%{B-}%{F-}%{F#ddd}%{B#BA000000}%{B-}%{F-}%{T-}%{B#ddd}%{F#333} %{T3}勞%{T-} %title:0:270:...%  %{F-}%{B-}%{T3}%{F#ddd}%{B#BA000000}%{B-}%{F-}%{F#222}%{B#FFF}%{B-}%{F-}%{F#68000000}%{F-}%{T-}"
 ;
-;  			should stop using transparency; we need some slight overlap to eliminate fringing
-label = "%{T5}%{F#68000000} %{F-}%{F#88000000}%{B#68000000} %{B-}%{F-}%{F#ddd}%{B#BA000000} %{B-}%{F-}%{T-}%{B#ddd}%{F#333}  %{T5}勞%{T-} %title:0:270:...%  %{F-}%{B-}%{T5}%{F#ddd}%{B#222}%{B-}%{F-}%{F#88000000}%{B#68000000}%{B-}%{F-}%{F#68000000}%{F-}%{T-}"
-;label = "%{T5}%{F#68000000} %{F-}%{F#88000000}%{B#68000000} %{B-}%{F-}%{F#ddd}%{B#BA000000} %{B-}%{F-}%{T-}%{B#ddd}%{F#333}  %{T5}勞%{T-} %title:0:270:...%  %{F-}%{B-}%{T5}%{B#ddd}%{F#BA000000} %{B-}%{F-}%{B#88000000}%{F#68000000} %{B-}%{F#00000000}%{B#68000000} %{B-}%{F-}%{T-}"
+;			should stop using transparency; we need some slight overlap to eliminate fringing
+label = "%{T5}%{F#68000000} %{F-}%{F#88000000}%{B#68000000} %{B-}%{F-}%{F#ddd}%{B#BA000000} %{B-}%{F-}%{T-}%{B#ddd}%{F#333}  %{T5}勞%{T-} %title:0:117:...%  %{F-}%{B-}%{T5}%{F#ddd}%{B#222}%{B-}%{F-}%{F#88000000}%{B#68000000}%{B-}%{F-}%{F#68000000}%{F-}%{T-}"
+
+
+; =================================================================================================
+;											:: Volume ::
+[module/volume]
+type = internal/volume
+
+format-volume =  <bar-volume> <label-volume> 
+label-volume-font = 6
+label-volume = %{F#AAFFFFFF} %{F-}
+label-volume-foreground = ${root.foreground}
+
+format-muted = <bar-volume> <label-muted> 
+format-muted-foreground = ${colors.foreground}
+label-muted = %{F#AAFFFFFF} %{F-}
+label-muted-font = 6
+
+bar-volume-width = 20
+
+bar-volume-gradient = true
+bar-volume-foreground-0 = #A0A0A0
+bar-volume-foreground-1 = #A8A8A8
+bar-volume-foreground-2 = #B0B0B0
+bar-volume-foreground-3 = #B8B8B8
+bar-volume-foreground-4 = #C0C0C0
+bar-volume-foreground-5 = #C8C8C8
+bar-volume-foreground-6 = #D0D0D0
+bar-volume-foreground-7 = #D8D8D8
+bar-volume-foreground-8 = #E0E0E0
+bar-volume-foreground-9 = #E8E8E8
+bar-volume-foreground-10 = #F0F0F0
+bar-volume-foreground-11 = #F8F8F8
+
+bar-volume-indicator-foreground = #FFF
+bar-volume-empty-foreground = #333
+
+bar-volume-indicator = %{O-1}
+bar-volume-indicator-font = 8
+bar-volume-fill = %{O-1}
+bar-volume-fill-font = 8
+bar-volume-empty = %{O-1}
+bar-volume-empty-font = 8
+
+
+; =================================================================================================
+;											:: CPU ::
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-foreground = ${colors.foreground}
+format-underline = #00000000
+format-overline = #00000000
+label = %{B#0000}%{F#333}%{T2}  %{T-}%{F-}%{B-}%{B#333}%percentage:3:3%% %{B-}%{B#555} %{T7}%{T-} %{B-}
+
+
+; =================================================================================================
+;											:: Memory ::
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = ""
+format-foreground = ${colors.foreground}
+format-underline = #00000000
+format-overline = #00000000
+;label = %{F#888}%{F-}  %percentage_used%%
+label = %{B#0000}%{F#333}%{T2} %{T-}%{F-}%{B-}%{B#333}%percentage_used:3:3%% %{B-}%{B#555} %{T7}溜%{T-} %{B-}
+
+
+; =================================================================================================
+;											:: Time/Date ::
+[module/date]
+type = internal/date
+interval = 1
+
+date = 
+date-alt = " %a, %b %e,"
+
+time = %l:%M %p
+time-alt = %l:%M %p
+
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground-alt}
+format-background = #00000000
+format-overline-size = 5
+
+label = "   %{T2}%{F#333}%{B#00000000}%{B-}%{F-}%{T-}%{B#333}%{F#888}%{F-}%{F#AAFFFFFF}%{F-}%date%%time% %{F#AAFFFFFF}%{F-}%{B-}%{T3}%{F#333}%{F-}%{T-}" 
+
+
+
+
 
 
 [module/xkeyboard]
@@ -172,57 +334,6 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-
-label-focused-font = 3
-label-unfocused-font = 3
-label-visible-font = 3
-label-urgent-font = 3
-
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %icon%
-label-focused-background = #ddd
-label-focused-foreground = #444
-;label-focused-background = ${colors.background-focused-workspace}
-;label-focused-foreground = ${colors.foreground-focused-workspace}
-;label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = 1
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
-label-unfocused-padding = 1
-
-; visible = Active workspace on unfocused monitor
-label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
-;label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 2
-
-; urgent = Workspace with urgency hint set
-label-urgent = %icon%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = 2
-
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
@@ -257,26 +368,6 @@ bar-empty-foreground = ${colors.foreground-alt}
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = ""
-format-foreground = ${colors.foreground}
-format-underline = #00000000
-format-overline = #00000000
-label = %{B#0000}%{F#333}%{T2}  %{T-}%{F-}%{B-}%{B#333}%percentage:3:3%% %{B-}%{B#555}%{T1}   %{T-}%{B-}
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = ""
-format-foreground = ${colors.foreground}
-format-underline = #00000000
-format-overline = #00000000
-;label = %{F#888}%{F-}  %percentage_used%%
-label = %{B#0000}%{F#333}%{T2} %{T-}%{F-}%{B-}%{B#333}%percentage_used:3:3%% %{B-}%{B#555}%{T1} 溜  %{T-}%{B-}
-
 [module/wlan]
 type = internal/network
 interface = wlp12s0
@@ -314,58 +405,6 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-type = internal/date
-interval = 1
-
-date = 
-date-alt = " %a, %b %e,"
-
-time = %l:%M %p
-time-alt = %l:%M %p
-
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = #00000000
-format-overline-size = 5
-;overline-size = 2
-;format-overline = #FF0FFF
-;format-underline = #FFFFFF
-
-label = "   %{T2}%{F#333}%{B#00000000}%{B-}%{F-}%{T-}%{B#333}%{F#888}%{F-}%{F#AAFFFFFF}%{F-}%date% %time% %{F#AAFFFFFF}%{F-}%{B-}%{T3}%{F#333}%{F-}%{T-}" 
-
-[module/volume]
-type = internal/volume
-
-format-volume =  <bar-volume> <label-volume> 
-label-volume-font = 1
-label-volume = %{F#AAFFFFFF}  %{F-}
-label-volume-foreground = ${root.foreground}
-
-format-muted = <bar-volume> <label-muted> 
-;format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground}
-label-muted = %{F#AAFFFFFF}  %{F-}
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #AAFFFFFF
-bar-volume-foreground-1 = #AAFFFFFF
-bar-volume-foreground-2 = #AAFFFFFF
-bar-volume-foreground-3 = #AAFFFFFF
-bar-volume-foreground-4 = #AAFFFFFF
-bar-volume-foreground-5 = #AAFFFFFF
-bar-volume-foreground-6 = #AAFFFFFF
-bar-volume-gradient = true
-;bar-volume-indicator = %{T4}%{B#333}%{F#888}⏽%{F-}%{B-}%{T-}
-bar-volume-indicator = %{T4}%{B#00333333}%{F#AAFFFFFF}%{F-}%{B-}%{T-}
-bar-volume-indicator-font = 2
-bar-volume-fill = %{T4}%{T-}
-bar-volume-fill-font = 2
-bar-volume-empty = %{T4}%{T-}
-;bar-volume-empty = ﮋ
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = #333
 
 [module/battery]
 type = internal/battery
@@ -418,58 +457,5 @@ ramp-2 = %{F#888}%{F-}
 ramp-3 = %{F#888}%{F-}
 ramp-4 = %{F#888}%{F-}
 ramp-foreground = ${colors.foreground}
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 0
-format-background = #FFF
-
-label-open-font = 1
-label-close-font = 1
-;label-font = 1
-menu-0-font = 1
-menu-1-font = 1
-menu-2-font = 1
-
-;label-open = 
-;label-open = "  %{F#FFF}%{B#0000}%{T3}%{T-}%{B-}%{F-}  "
-
-label-open-foreground = #AAAAAA
-;label-open = "   %{B#FFF}%{F#333}%{R}%{T5} hi%{T-}%{B-}%{F-}     "
-label-open = "   %{F#FFF}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}  "
-
-;label-close = "  %{F#FFF}%{B#333}%{T3}%{T-}%{B-}%{F-}"
-label-close = "  %{B#FFF}%{F#333} %{R}%{T5}%{O-1}%{T-}%{B-}%{F-}"
-;label-close = "   %{F#FFF}%{B#333}%{T3}%{O-1}%{T-}%{B-}%{F-}"
-label-close-foreground = #AAAAAA 
-label-separator = "%{B#333}  %{B-}"
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = "%{B#333}%{F#FFF}reboot%{F-}%{B-}"
-menu-0-0-exec = menu-open-1
-menu-0-1 = "%{B#333}%{F#FFF}power off %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = "%{B#333}%{F#FFF}cancel%{F-}%{B-}"
-menu-1-0-exec = menu-open-0
-menu-1-1 = "%{B#333}%{F#FFF}reboot %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
-menu-1-1-exec = reboot
-
-menu-2-0 = "%{B#333}%{F#FFF}power off%{F-}%{B-}"
-menu-2-0-exec = shutdown -h now
-menu-2-1 = "%{B#333}%{F#FFF}cancel %{F-}%{B-}%{F#333}%{B#0000}%{T3}%{O-1}%{T-}%{B-}%{F-}   "
-menu-2-1-exec = menu-open-0
-
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini
