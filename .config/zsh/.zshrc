@@ -33,6 +33,12 @@ alias rm="rm -i"
 alias rmr="rm -rI"
 alias rg="rg -uu"
 
+configadd()
+{
+	# filters out files with untracked changes, passes them to fzf, and then adds the chosen files to git staging
+	config status -s | rg "^.\S.+" | fzf -m | awk '{print $NF}' | xargs -r /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add --verbose
+}
+
 # Change terminal font on the fly
 setfont() {
 	printf '\e]710;%s\007' "$@"
