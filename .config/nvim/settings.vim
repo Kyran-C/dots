@@ -2,6 +2,7 @@ let mapleader="\<space>"
 
 set undodir=~/.config/nvim/.undodir
 
+set confirm						" Prompt to save modified buffers when quitting, rather than simply failing
 set noshowmode					" No need to show the mode, we have a statusline for that
 set mouse=a						" Enable mouse in all modes
 set title						" Set window title to current file

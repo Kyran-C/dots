@@ -27,7 +27,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'rktjmp/lush.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
+Plug 'tversteeg/registers.nvim'
 Plug 'kevinoid/vim-jsonc'
 
 Plug 'Raimondi/delimitMate'
