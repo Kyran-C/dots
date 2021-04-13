@@ -13,7 +13,7 @@ inoremap <expr> <cr> coc#_selected() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 "   <Right> to complete
 inoremap <silent><expr> <Right>
-	\ pumvisible() ? coc#_select_confirm() :
+	\ coc#_selected() ? coc#_select_confirm() :
 	\ "\<Right>"
 
 "   <Left> to cancel
