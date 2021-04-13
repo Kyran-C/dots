@@ -258,7 +258,7 @@ for_window [class="^.*"] pixel 0
 exec --no-startup-id xrdb -merge ~/.config/X11/Xresources
 
 # adjust key delay and repeat frequency
-exec --no-startup-id xset r rate 350 45
+exec_always --no-startup-id xset r rate 350 45
 
 exec_always --no-startup-id urxvtd -q -o -f
 
@@ -273,6 +273,6 @@ exec_always --no-startup-id ~/bin/i3_helper.py &
 #exec --no-startup-id nm-applet
 #exec_always --no-startup-id compton --config .config/compton.conf
 exec --no-startup-id /usr/lib/polkit-1/polkitd --no-debug
+exec --no-startup-id lxsession &
 exec --no-startup-id /usr/lib/poolkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id VBoxClient-all
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
