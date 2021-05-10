@@ -212,6 +212,8 @@ export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export TERMINAL='kitty'
+export SUDO_ASKPASS="$HOME/bin/rofi_password_prompt.sh"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
