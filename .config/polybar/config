@@ -282,7 +282,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-background = #00000000
 format-overline-size = 5
 
-label = "   %{T2}%{F#333}%{B#00000000}%{B-}%{F-}%{T-}%{B#333}%{F#888}%{F-}%{F#AAFFFFFF}%{F-}%date%%time% %{F#AAFFFFFF}%{F-}%{B-}%{T3}%{F#333}%{F-}%{T-}" 
+label = "   %{T2}%{F#333}%{B#00000000}%{B-}%{F-}%{T-}%{B#333}%{F#888}%{F-}%{F#AAFFFFFF}%{F-}%date% %time% %{F#AAFFFFFF}%{F-}%{B-}%{T3}%{F#333}%{F-}%{T-}" 
 
 
 
