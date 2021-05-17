@@ -16,7 +16,7 @@ Update
 Windows"
 #options_str=$( printf "%s\n" "${!options[@]}" )
 
-export SUDO_ASKPASS=~/bin/rofi_password_prompt
+export SUDO_ASKPASS=~/bin/rofi_password_prompt.sh
 #echo $options_str
 selected=$(echo "$options_str" | rofi -dmenu -matching fuzzy -sort -p ":" -i)
 [[ -z $selected ]] && exit 	# check that returned value isn't null
