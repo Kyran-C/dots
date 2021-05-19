@@ -28,7 +28,7 @@ Xft.rgba:       rgb
 !Xft.color: false
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
-Xft.lcdfilter: 0
+Xft.lcdfilter: 1
 
 ! ------------------------------------------------------------------------------
 ! URXVT
