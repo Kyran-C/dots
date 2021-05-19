@@ -181,7 +181,7 @@ vnoremap f "_c
 " == Paste ==
 nnoremap v p
 nnoremap V P
-vnoremap v p
+vnoremap v "0p
 
 " == Copy ==
 nnoremap c y
