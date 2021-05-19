@@ -39,7 +39,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
 " Ranger
-"Plug 'kevinhwang91/rnvimr'
+Plug 'kevinhwang91/rnvimr'
 "
 "Plug 'dbgx/lldb.nvim'
 "Plug 'lewis6991/gitsigns.nvim'
@@ -65,3 +65,5 @@ runtime modules/fzf.vim
 runtime modules/coc.vim
 
 runtime modules/lightline.vim
+
+runtime modules/ranger.vim
