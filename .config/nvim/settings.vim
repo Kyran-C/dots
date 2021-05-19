@@ -31,6 +31,15 @@ set termguicolors				" Use true color
 set cursorline					" Highlight the line the cursor is on
 set splitright splitbelow		" Open new windows below and to the right
 
+set signcolumn=number			" Combine sign column with line numbers
+
+set completeopt=menuone			" Show completion menu, even when only one option exists
+set completeopt+=longest 		" Only complete up to the longest common substring of the matches
+set completeopt+=preview		" Show extra info about current selection
+
+set wildignorecase				" Ignore case in command completions
+set wildmode=longest:full,full	" On tab, complete to the longest common substring and open wildmenu
+
 " Highlight special characters
 set list
 set listchars=space:·,tab:\│\ ,extends:…,precedes:…
