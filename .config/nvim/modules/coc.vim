@@ -1,8 +1,6 @@
 
 set updatetime=300
 
-set signcolumn=number
-
 "   ctrl-space to trigger completion
 inoremap <silent><expr> <F13><spc>
 	\ pumvisible() ? coc#_select_confirm() :
@@ -28,16 +26,16 @@ inoremap <silent><expr> <S-Tab>
 
 "  :: Mappings to fill out ::
 "
-" map <silent> ___ <Plug>(coc-diagnostic-prev) 
-" map <silent> ___ <Plug>(coc-diagnostic-next) 
-" map <silent> ___ <Plug>(coc-definition) 
-" map <silent> ___ <Plug>(coc-type-definition) 
-" map <silent> ___ <Plug>(coc-implementation) 
-" map <silent> ___ <Plug>(coc-references) 
-map <silent> B <Plug>(coc-codeaction) 
+" map <silent> ___ <Plug>(coc-diagnostic-prev)
+" map <silent> ___ <Plug>(coc-diagnostic-next)
+" map <silent> ___ <Plug>(coc-definition)
+" map <silent> ___ <Plug>(coc-type-definition)
+" map <silent> ___ <Plug>(coc-implementation)
+" map <silent> ___ <Plug>(coc-references)
+map <silent> B <Plug>(coc-codeaction)
 " <Plug>(coc-rename)
 "
-map <silent> K :call <SID>show_documenation()<CR> 
+map <silent> K :call <SID>show_documenation()<CR>
 
 function! s:show_documenation()
 	if (index(['vim', 'help'], &filetype) >= 0)
@@ -48,3 +46,8 @@ function! s:show_documenation()
 		execute '!' . &keywordprg . " " . expand('<cword>')
 	endif
 endfunction
+
+augroup coc_augroup
+	autocmd!
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end

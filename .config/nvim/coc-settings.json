@@ -8,6 +8,8 @@
 	"suggest.floatEnable": true,
 	"codeLens.enable" : true,
 	"suggest.disableKind": false,
+	"suggest.maxCompleteItemCount": 150,
+	"suggest.triggerCompletionWait": 30,
 	"codeLens.separator" : "            ",
 	"coc.preferences.enableFloatHighlight": true
 //	"suggest.autoTrigger" : "trigger",
